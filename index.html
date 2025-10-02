@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bitácora - Dashboard Web3</title>
+
+  <!-- Ethers v6 (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.min.js"></script>
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Bitácora — Dashboard Web3</h1>
+    <div id="top-controls">
+      <button id="connectBtn">Conectar Wallet</button>
+      <button id="refreshBtn">Refrescar</button>
+      <div id="status"></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="walletPanel">
+      <h2>Cuenta</h2>
+      <div id="walletInfo" class="card">No conectado</div>
+    </section>
+
+    <section id="balancesPanel">
+      <h2>Balances (celdas comprimidas)</h2>
+      <div id="balancesGrid"></div>
+    </section>
+
+    <section id="actionsPanel">
+      <h2>Enviar</h2>
+      <div class="form-row">
+        <label for="recipient">Destino</label>
+        <input id="recipient" type="text" placeholder="0x..." />
+      </div>
+      <div class="form-row">
+        <label for="amount">Cantidad</label>
+        <input id="amount" type="number" step="any" placeholder="0.01" />
+      </div>
+      <div class="form-row">
+        <label for="tokenSelect">Activo</label>
+        <select id="tokenSelect">
+          <option value="ETH">ETH / RPC Native</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <button id="sendBtn">Enviar</button>
+      </div>
+    </section>
+
+    <section id="logsPanel">
+      <h2>Logs / Errores</h2>
+      <pre id="logArea"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <small>Diseñado para administrar activos — no compartas claves privadas.</small>
+  </footer>
+
+  <script type="module" src="src/dashboard.js"></script>
+</body>
+</html>
